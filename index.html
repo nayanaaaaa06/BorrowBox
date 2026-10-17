@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BorrowBox | Borrow Better</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="navbar">
+    <a class="brand" href="#"><span class="brand-icon">B</span><span>BorrowBox</span></a>
+    <nav>
+      <a href="#explore">Explore</a>
+      <a href="#dashboard">My BorrowBox</a>
+      <a href="#how-it-works">How it works</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="secondary-btn" id="addItemBtn" hidden>+ Add item</button>
+      <button class="login-btn" id="loginBtn">Sign in</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <span class="eyebrow">SHARE MORE. BUY LESS.</span>
+        <h1>Need it?<br><span>Borrow it.</span></h1>
+        <p>Discover useful things around your campus. Borrow what you need, lend what you don't.</p>
+        <a class="primary-btn" href="#explore">Explore items <span>→</span></a>
+        <div class="hero-note">♻️ Less waste. More sharing.</div>
+      </div>
+      <div class="hero-art">
+        <div class="art-circle"></div>
+        <div class="floating-card card-one"><span class="item-emoji">📚</span><div><strong>Books & notes</strong><small>Knowledge is shareable</small></div></div>
+        <div class="floating-card card-two"><span class="item-emoji">🎧</span><div><strong>Gadgets & gear</strong><small>Borrow, then return</small></div></div>
+        <div class="art-center">📦</div>
+      </div>
+    </section>
+
+    <section class="explore" id="explore">
+      <div class="section-heading">
+        <div><span class="eyebrow">THE COMMUNITY SHELF</span><h2>Find your next borrow</h2><p>Useful things, shared by people around you.</p></div>
+        <span class="item-count" id="itemCount">Campus sharing made simple</span>
+      </div>
+      <div class="search-bar">
+        <span>⌕</span>
+        <input id="searchInput" type="search" placeholder="Search calculators, books, gadgets...">
+        <button id="searchBtn">Search</button>
+      </div>
+      <div class="categories">
+        <button class="category active" data-category="All">All items</button>
+        <button class="category" data-category="Academic">📚 Academic</button>
+        <button class="category" data-category="Electronics">🔌 Electronics</button>
+        <button class="category" data-category="Creative">🎨 Creative</button>
+        <button class="category" data-category="Sports">🏸 Sports</button>
+      </div>
+      <div id="itemsGrid" class="items-grid">
+        <div class="empty-state"><span>📦</span><h3>Loading your community shelf…</h3><p>Connecting to Firebase.</p></div>
+      </div>
+    </section>
+
+    <section class="dashboard" id="dashboard">
+      <div class="section-heading">
+        <div><span class="eyebrow">YOUR ACTIVITY</span><h2>My BorrowBox</h2><p>Track your requests, items, and active loans in one place.</p></div>
+        <button class="secondary-btn" id="refreshDashboardBtn">Refresh</button>
+      </div>
+      <div class="dashboard-columns">
+        <section class="dashboard-panel"><h3>My borrow requests</h3><div id="myRequests" class="record-list"><p class="muted">Sign in to view your requests.</p></div></section>
+        <section class="dashboard-panel"><h3>Requests for my items</h3><div id="incomingRequests" class="record-list"><p class="muted">Sign in to view incoming requests.</p></div></section>
+        <section class="dashboard-panel"><h3>My listed items</h3><div id="myItems" class="record-list"><p class="muted">Sign in to view your listed items.</p></div></section>
+        <section class="dashboard-panel"><h3>Active loans & returns</h3><div id="myTransactions" class="record-list"><p class="muted">Sign in to view transactions.</p></div></section>
+      </div>
+    </section>
+
+    <section class="dashboard" id="extras-dashboard">
+      <div class="section-heading"><div><span class="eyebrow">COMMUNITY TOOLS</span><h2>Chat, reviews & notifications</h2><p>Chat is available for active/accepted loans. Reviews can be submitted after a return.</p></div><button class="secondary-btn" id="refreshExtrasBtn">Refresh tools</button></div>
+      <div class="dashboard-columns">
+        <section class="dashboard-panel"><h3>Notifications</h3><div id="notificationsList" class="record-list"><p class="muted">Sign in to view notifications.</p></div></section>
+        <section class="dashboard-panel"><h3>Loan chat</h3><div id="chatLoans" class="record-list"><p class="muted">Sign in to view eligible loans.</p></div><div id="chatPanel" hidden><div id="chatMessages" class="record-list"></div><div class="chat-compose"><input id="chatMessageInput" placeholder="Write a message…" maxlength="1000"><button class="primary-btn" id="sendChatBtn">Send</button></div></div></section>
+        <section class="dashboard-panel"><h3>Ratings & reviews</h3><div id="reviewsList" class="record-list"><p class="muted">Sign in to view reviews.</p></div></section>
+        <section class="dashboard-panel"><h3>Admin tools</h3><p class="muted">Admin access is enabled only for the email configured in app.js.</p><div id="adminPanel" class="record-list"><p class="muted">Admin sign-in required.</p></div></section>
+      </div>
+    </section>
+
+    <section class="how" id="how-it-works">
+      <span class="eyebrow">THREE SIMPLE STEPS</span><h2>Sharing made simple</h2>
+      <div class="steps">
+        <article><span>01</span><h3>Discover</h3><p>Find the item you need.</p></article>
+        <article><span>02</span><h3>Request</h3><p>Ask the owner to borrow it.</p></article>
+        <article><span>03</span><h3>Return</h3><p>Return it and keep sharing.</p></article>
+      </div>
+    </section>
+  </main>
+  <footer><a class="brand" href="#"><span class="brand-icon">B</span> BorrowBox</a><p>Need it? Borrow it. ♻️</p><small>BorrowBox — A community sharing project.</small></footer>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
